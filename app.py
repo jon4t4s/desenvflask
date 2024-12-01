@@ -1,0 +1,22 @@
+from flask import Flask
+
+app_Jonatas = Flask (__name__)
+
+@app_Jonatas.route('/')
+@app_Jonatas.route('/rota1')
+
+def rota1():
+    return 'Olá, Jônatas Dias!'
+
+@app_Jonatas.route('/rota2')
+def rota2():
+    resposta = "<H3> Essa é outra página da rota 2 <H3>"
+    return resposta
+
+def saudacoes (nome):
+    return f'Olá,{nome}'
+
+if __name__ == "__main__":
+
+    app_Jonatas.run()
+    
