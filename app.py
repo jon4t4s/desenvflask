@@ -8,10 +8,6 @@ app_Jonatas = Flask (__name__)
 def rota1():
     return 'Olá, Jônatas Dias!'
 
-@app_Jonatas.route('/rota2')
-def rota2():
-    resposta = "<H3> Essa é outra página da rota 2 <H3>"
-    return resposta
 
 def saudacoes (nome):
     return f'Olá,{nome}'
