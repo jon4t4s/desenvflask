@@ -8,7 +8,6 @@ app_Jonatas = Flask (__name__)
 def rota1():
     return 'Olá, Jônatas Dias!'
 
-
 def saudacoes (nome):
     return f'Olá,{nome}'
 
