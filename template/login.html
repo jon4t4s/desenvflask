@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Login</h1>
+<form onsubmit="return validarSenha()">
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" name="senha" required>
+    <button type="submit">Entrar</button>
+</form>
+<a href="{{ url_for('cadastro') }}">Criar Login</a>
+
+<script>
+    function validarSenha() {
+        const senha = document.getElementById('senha').value;
+        const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{6,}$/;
+        if (!regex.test(senha)) {
+            alert('A senha deve conter no mínimo 6 caracteres, 1 letra maiúscula, 1 número e 1 caractere especial.');
+            return false;
+        }
+        return true;
+    }
+</script>
+{% endblock %}
