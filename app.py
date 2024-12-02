@@ -1,17 +1,14 @@
-from flask import Flask
+from flask import Flask, render_template, request, redirect, url_for
 
-app_Jonatas = Flask (__name__)
+app_Jonatas = Flask(__name__)
 
 @app_Jonatas.route('/')
-@app_Jonatas.route('/rota1')
+def login():
+    return render_template('login.html')
 
-def rota1():
-    return 'Olá, Jônatas Dias!'
-
-def saudacoes (nome):
-    return f'Olá,{nome}'
+@app_Jonatas.route('/cadastro')
+def cadastro():
+    return render_template('cadastro.html')
 
 if __name__ == "__main__":
-
-    app_Jonatas.run()
-    
+    app_Jonatas.run(debug=True)
