@@ -1,20 +1,33 @@
-// Validação de Login (CPF e Senha)
-function validarLogin() {
-    const cpf = document.getElementById('cpf').value.trim();
-    const senha = document.getElementById('senha').value;
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    const senha1 = document.getElementById("senha1");
+    const senha2 = document.getElementById("senha2");
 
-    // Verifica CPF (somente se está preenchido)
-    if (!cpf) {
-        alert('Por favor, insira seu CPF.');
-        return false;
-    }
+    form.addEventListener("submit", function (event) {
+        const senha = senha1.value;
 
-    // Verifica senha
-    const regexSenha = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{6,}$/;
-    if (!regexSenha.test(senha)) {
-        alert('A senha deve conter no mínimo 6 caracteres, 1 letra maiúscula, 1 número e 1 caractere especial.');
-        return false;
-    }
+        // Requisitos de validação
+        const temMaiuscula = /[A-Z]/.test(senha);
+        const temNumero = /[0-9]/.test(senha);
+        const temEspecial = /[!@#$%^&*(),.?":{}|<>]/.test(senha);
+        const comprimentoMinimo = senha.length >= 6;
 
-    return true; // CPF e senha válidos
-}
+        // Validações
+        if (senha1.value !== senha2.value) {
+            event.preventDefault();
+            alert("As senhas não coincidem! Por favor, corrija e tente novamente.");
+        } else if (!comprimentoMinimo) {
+            event.preventDefault();
+            alert("A senha deve ter no mínimo 6 caracteres.");
+        } else if (!temMaiuscula) {
+            event.preventDefault();
+            alert("A senha deve incluir pelo menos uma letra maiúscula.");
+        } else if (!temNumero) {
+            event.preventDefault();
+            alert("A senha deve incluir pelo menos um número.");
+        } else if (!temEspecial) {
+            event.preventDefault();
+            alert("A senha deve incluir pelo menos um caractere especial.");
+        }
+    });
+});

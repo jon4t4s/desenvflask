@@ -169,3 +169,7 @@ footer {
 .card-body-cadastro button:hover {
     background-color: #0056b3;
 }
+.text-muted {
+    font-size: 0.9em;
+    color: #6c757d;
+}
